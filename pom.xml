@@ -1,0 +1,8 @@
+<project>
+  <groupId>com.github.Jullil</groupId>
+  <artifactId>baloooon</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Balloooon</name>
+  <url>https://github.com/Jullil/balloooon</url>
+</project>
