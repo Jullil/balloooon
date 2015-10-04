@@ -1,5 +1,8 @@
 package org.test;
 
+import org.test.ejb.TestEjb;
+
+import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
@@ -9,8 +12,11 @@ import javax.ws.rs.Path;
 @Path("test")
 public class TestResource {
 
+    @EJB
+    private TestEjb testEjb;
+
     @GET
     public String test() {
-        return "Working";
+        return testEjb.getAnswer();
     }
 }
