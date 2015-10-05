@@ -1,16 +1,21 @@
 package org.test;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
-/**
- * Created by botanick on 04.10.15.
- */
-@Path("test")
+@Path("/")
 public class TestResource {
 
     @GET
-    public String test() {
-        return "Working";
+    @Path("test-get")
+    public String testGet() {
+        return "GET is working";
+    }
+
+    @POST
+    @Path("test-post")
+    public String testPost() {
+        return "POST is working";
     }
 }
