@@ -1,7 +1,10 @@
 package org.test;
 
+import com.sun.deploy.net.HttpRequest;
+
 import javax.ejb.EJB;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
@@ -33,16 +36,19 @@ public class UserResource {
     @GET
     @Path("sign-in")
     public String signIn() {
+
+
         return "Sign in form";
     }
 
     @Path("sign-in")
     @POST
-    public String signIn(@FormParam("login") String login, @FormParam("password") String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public String signIn(@FormParam("login") String login, @FormParam("password") String password, @Context HttpServletRequest req) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         final User user = userService.findUser(login);
         if (user != null && user.getPassword().equals(userService.encodePassword(password))) {
             return "You've successfully signed in";
         }
+
         return "Login or password is incorrect";
     }
 }
