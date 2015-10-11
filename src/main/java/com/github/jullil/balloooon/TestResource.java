@@ -1,6 +1,6 @@
-package org.test;
+package com.github.jullil.balloooon;
 
-import org.test.ejb.TestEjb;
+import com.github.jullil.balloooon.ejb.TestEjb;
 
 import javax.ejb.EJB;
 import javax.ws.rs.GET;

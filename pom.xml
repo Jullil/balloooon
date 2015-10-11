@@ -7,6 +7,10 @@
   <url>https://github.com/Jullil/balloooon</url>
   <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <hibernate.version>5.0.2.Final</hibernate.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -46,9 +50,9 @@
             <version>13.0</version>
         </dependency>
         <dependency>
-           <groupId>org.hibernate</groupId>
-           <artifactId>hibernate-core</artifactId>
-           <version>5.0.2.Final</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -57,8 +61,13 @@
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j</artifactId>
+            <artifactId>log4j-api</artifactId>
             <version>2.4</version>
-        </dependency>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.4</version>
+          </dependency>
     </dependencies>
 </project>

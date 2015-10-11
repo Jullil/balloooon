@@ -30,7 +30,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     </servlet-mapping>
 
     <persistence-context-ref>
-        <persistence-context-ref-name>ballooon-db</persistence-context-ref-name>
-        <persistence-unit-name>ballooon-db</persistence-unit-name>
+        <persistence-context-ref-name>balloooon-db</persistence-context-ref-name>
+        <persistence-unit-name>balloooon-db</persistence-unit-name>
     </persistence-context-ref>
 </web-app>     

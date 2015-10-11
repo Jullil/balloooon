@@ -1,11 +1,8 @@
-package org.test.ejb;
+package com.github.jullil.balloooon.ejb;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
-/**
- * Created by botanick on 04.10.15.
- */
 @LocalBean
 @Stateless
 public class TestEjb {

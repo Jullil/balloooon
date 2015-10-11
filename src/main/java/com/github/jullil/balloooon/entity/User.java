@@ -1,11 +1,13 @@
-package org.test.entity;
+package com.github.jullil.balloooon.entity;
 
+import org.hibernate.annotations.ColumnTransformer;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
+@Table(name="my_user")
 public class User {
     @Id
     @GeneratedValue(generator="increment")
@@ -16,20 +18,19 @@ public class User {
     @Column(name="name")
     private String name;
 
+    @NaturalId
     @Column(name="login")
     private String login;
 
     @Column(name="password")
+    //@ColumnTransformer(write="encrypt(?)")
     private String password;
 
-    public User() {
+    public User() {}
 
-    }
-
-    public User(String name, String login, String password) {
+    public User(String name, String login) {
         this.name = name;
         this.login = login;
-        this.password = password;
     }
 
     public int getId() {
