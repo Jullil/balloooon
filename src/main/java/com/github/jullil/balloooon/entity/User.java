@@ -23,7 +23,6 @@ public class User {
     private String login;
 
     @Column(name="password")
-    //@ColumnTransformer(write="encrypt(?)")
     private String password;
 
     public User() {}
