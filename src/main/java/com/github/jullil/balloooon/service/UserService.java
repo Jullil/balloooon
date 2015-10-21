@@ -22,31 +22,9 @@ import java.security.NoSuchAlgorithmException;
 /**
  * @author jul
  */
-@Repository
-@Transactional
+@Service
 public class UserService {
     private static final Logger logger = LogManager.getLogger(UserService.class);
-
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    @Transactional
-    public boolean addUser(User user, String rawPassword) {
-        user.setPassword(encodePassword(rawPassword));
-        entityManager.persist(user);
-        return true;
-    }
-
-    @Nullable
-    public User getUser(@NotNull String login, @NotNull String rawPassword) {
-        final TypedQuery<User> query = entityManager.createQuery(
-            "select u from User u where u.login = :login and u.password = :password",
-            User.class
-        );
-        query.setParameter("login", login);
-        query.setParameter("password", encodePassword(rawPassword));
-        return query.getSingleResult();
-    }
 
     @Nullable
     public String encodePassword(@NotNull String password) {

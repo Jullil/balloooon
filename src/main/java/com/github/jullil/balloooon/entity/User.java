@@ -1,6 +1,5 @@
 package com.github.jullil.balloooon.entity;
 
-import org.hibernate.annotations.ColumnTransformer;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NaturalId;
 
@@ -15,8 +14,8 @@ public class User {
     @Column(name="id")
     private int id;
 
-    @Column(name="name")
-    private String name;
+    @Column(name="firstName")
+    private String firstName;
 
     @NaturalId
     @Column(name="login")
@@ -25,10 +24,13 @@ public class User {
     @Column(name="password")
     private String password;
 
+    @Column(name="email")
+    private String email;
+
     public User() {}
 
-    public User(String name, String login) {
-        this.name = name;
+    public User(String firstName, String login) {
+        this.firstName = firstName;
         this.login = login;
     }
 
@@ -40,12 +42,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLogin() {
@@ -62,5 +64,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
