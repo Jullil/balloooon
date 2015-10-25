@@ -5,7 +5,9 @@
 <head>
 
 <spring:url value="/webjars/bootstrap/css/bootstrap.min.css" var="bootstrapCss" />
+<spring:url value="/css/main.css" var="mainCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
+<link href="${mainCss}" rel="stylesheet" />
 </head>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
