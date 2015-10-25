@@ -1,35 +1,43 @@
 package com.github.jullil.balloooon.entity;
 
+import com.github.jullil.balloooon.service.UserRole;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name="my_user")
+@Table(name = "my_user")
 public class User {
     @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name="id")
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "id")
     private int id;
 
-    @Column(name="firstName")
+    @Column(name = "firstName")
     private String firstName;
 
     @NaturalId
-    @Column(name="login")
+    @Column(name = "login")
     private String login;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
-    public User() {}
+    private final List<UserRole> roles = new ArrayList<>(1);
+
+    public User() {
+        roles.add(new UserRole());
+    }
 
     public User(String firstName, String login) {
+        super();
         this.firstName = firstName;
         this.login = login;
     }
@@ -72,5 +80,9 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<UserRole> getRoles() {
+        return roles;
     }
 }

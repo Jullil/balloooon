@@ -26,4 +26,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @NotNull
     Optional<User> findByLoginAndPassword(@NotNull String login, @Nullable String encodedPassword);
+
+    @NotNull
+    Optional<User> findByLogin(@NotNull String login);
 }
