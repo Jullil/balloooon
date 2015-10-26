@@ -30,6 +30,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Transient
     private final List<UserRole> roles = new ArrayList<>(1);
 
     public User() {

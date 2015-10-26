@@ -67,7 +67,7 @@
                                 <label for="userNameInput" class="col-lg-3 control-label">User Name</label>
 
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="userName"
+                                    <input type="text" class="form-control" name="login"
                                            id="userNameInput" placeholder="User Name"/>
                                 </div>
                             </div>

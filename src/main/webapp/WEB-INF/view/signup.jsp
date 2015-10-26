@@ -78,7 +78,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <form:form id="myForm" method="post" action="/user/" class="bs-example form-horizontal">
+                    <form:form id="myForm" method="post" action="/user/sign-up/" class="bs-example form-horizontal">
                         <fieldset>
                             <legend>Signup Form</legend>
                             <div class="form-group">
