@@ -8,9 +8,11 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.ws.rs.*;
 import java.util.Optional;
@@ -20,7 +22,7 @@ import java.util.Optional;
  */
 @Controller
 @RequestMapping("user")
-public class UserController {
+public class UserController extends BaseController {
     private static final Logger logger = LogManager.getLogger(UserController.class);
 
     @Autowired
@@ -29,9 +31,12 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @RequestMapping("sign-up")
-    public String signUp() {
-        return "signup";
+    public ModelAndView signUp() {
+        return renderView("signup", "Sign up");
     }
 
     @RequestMapping(value = "sign-up", method = RequestMethod.POST)
@@ -43,7 +48,7 @@ public class UserController {
             throw new WebApplicationException("Please, specify login and password");
         }
         final User user = new User("", login);
-        user.setPassword(userService.encodePassword(password));
+        user.setPassword(passwordEncoder.encode(password));
         user.setFirstName(firstName);
         user.setEmail(email);
         userRepository.save(user);
@@ -51,8 +56,8 @@ public class UserController {
     }
 
     @RequestMapping("sign-in")
-    public String signIn() {
-        return "signin";
+    public ModelAndView signIn() {
+        return renderView("signin", "Sign In");
     }
 
     @RequestMapping(value = "sign-in", method = RequestMethod.POST)

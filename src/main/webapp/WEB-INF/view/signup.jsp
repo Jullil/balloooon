@@ -6,157 +6,83 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Signup</title>
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/assets/css/bootstrap-united.css" rel="stylesheet"/>
+<div class="col-lg-6">
+    <form:form id="myForm" method="post" action="/user/sign-up/" class="bs-example form-horizontal">
+        <fieldset>
+            <legend>Signup Form</legend>
+            <div class="form-group">
+                <label for="userNameInput" class="col-lg-3 control-label">Login</label>
 
-    <style type="text/css">
-        .green {
-            font-weight: bold;
-            color: green;
-        }
-
-        .message {
-            margin-bottom: 10px;
-        }
-
-        .error {
-            color: #ff0000;
-            font-size: 0.9em;
-            font-weight: bold;
-        }
-
-        .errorblock {
-            color: #000;
-            background-color: #ffEEEE;
-            border: 3px solid #ff0000;
-            padding: 8px;
-            margin: 16px;
-        }
-    </style>
-
-</head>
-<body>
-
-<div class="navbar navbar-default">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                data-target=".navbar-responsive-collapse">
-            <span class="icon-bar"></span> <span class="icon-bar"></span> <span
-                class="icon-bar"></span>
-        </button>
-    </div>
-
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="/user/sign-up">Signup</a></li>
-            <li><a href="/user/sign-in">Login</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Contact us</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Further Actions</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <!-- /.nav-collapse -->
-</div>
-
-<c:if test="${not empty it.message}">
-    <div class="green">${it.message}</div>
-</c:if>
-
-<div class="col-lg-6 col-lg-offset-3">
-    <div class="well">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <form:form id="myForm" method="post" action="/user/sign-up/" class="bs-example form-horizontal">
-                        <fieldset>
-                            <legend>Signup Form</legend>
-                            <div class="form-group">
-                                <label for="userNameInput" class="col-lg-3 control-label">Login</label>
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="login"
-                                           id="userNameInput" placeholder="Login"
-                                           value="${it.student.userName}"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="passwordInput" class="col-lg-3 control-label">Password</label>
-                                <div class="col-lg-9">
-                                    <input type="password" class="form-control" name="password"
-                                           id="passwordInput" placeholder="Password"
-                                           value="${it.student.password}"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="firstNameInput" class="col-lg-3 control-label">First Name</label>
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="firstName"
-                                           id="firstNameInput" placeholder="First Name"
-                                           value="${it.student.firstName}"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="emailAddressInput" class="col-lg-3 control-label">Email Address</label>
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="email"
-                                           id="emailAddressInput" placeholder="Email Address"
-                                           value="${it.student.emailAddress}"/>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-9 col-lg-offset-3">
-                                <button class="btn btn-default">Cancel</button>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#themodal">Submit</button>
-
-                                <div id="themodal" class="modal fade" data-backdrop="static">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-hidden="true">&times;</button>
-                                                <h3>Signup Form Submission</h3>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Are you sure you want to do this?</p>
-
-                                                <div class="progress progress-striped active">
-                                                    <div id="doitprogress" class="progress-bar"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-                                                <input type="submit" value="Yes" id="yesbutton"
-                                                       class="btn btn-primary" data-loading-text="Saving.."
-                                                       data-complete-text="Submit Complete!">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form:form>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control" name="login"
+                           id="userNameInput" placeholder="Login"
+                           value="${it.student.userName}"/>
                 </div>
             </div>
-        </div>
-    </div>
+
+            <div class="form-group">
+                <label for="passwordInput" class="col-lg-3 control-label">Password</label>
+
+                <div class="col-lg-9">
+                    <input type="password" class="form-control" name="password"
+                           id="passwordInput" placeholder="Password"
+                           value="${it.student.password}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstNameInput" class="col-lg-3 control-label">First Name</label>
+
+                <div class="col-lg-9">
+                    <input type="text" class="form-control" name="firstName"
+                           id="firstNameInput" placeholder="First Name"
+                           value="${it.student.firstName}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="emailAddressInput" class="col-lg-3 control-label">Email Address</label>
+
+                <div class="col-lg-9">
+                    <input type="text" class="form-control" name="email"
+                           id="emailAddressInput" placeholder="Email Address"
+                           value="${it.student.emailAddress}"/>
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-lg-offset-3">
+                <button class="btn btn-default">Cancel</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#themodal">Submit</button>
+
+                <div id="themodal" class="modal fade" data-backdrop="static">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">&times;</button>
+                                <h3>Signup Form Submission</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to do this?</p>
+
+                                <div class="progress progress-striped active">
+                                    <div id="doitprogress" class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                                <input type="submit" value="Yes" id="yesbutton"
+                                       class="btn btn-primary" data-loading-text="Saving.."
+                                       data-complete-text="Submit Complete!">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form:form>
 </div>
 
-
-<script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
-<script src="/webjars/bootstrap/js/bootstrap.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         var yesButton = $("#yesbutton");
@@ -177,5 +103,3 @@
         });
     });
 </script>
-</body>
-</html>

@@ -10,15 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @PreAuthorize("hasRole('USER')")
-public class ClosedController {
+public class ClosedController extends BaseController {
 
     @RequestMapping(value = "/admin**")
     public ModelAndView adminPage() {
-        final ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security Hello World");
-        model.addObject("message", "This is protected page!");
-        model.setViewName("admin");
-        return model;
+        return renderView("admin", "Spring Security Hello World");
     }
 
 }
